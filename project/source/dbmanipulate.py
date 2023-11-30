@@ -2,10 +2,10 @@ from pymysqlpool import ConnectionPool
 import pymysql, datetime
 
 dbconfig = {
-    "host":'db-tech4impact-rsj.c8attu0agcw6.ap-northeast-2.rds.amazonaws.com',
-    "user":'admin',
-    "password":'tech4impact!',
-    "db":'tech4impact',
+    "host":'DBNAME',
+    "user":'USER',
+    "password":'PASSWORD',
+    "db":'DATABASE',
     "charset":'utf8',
     "autocommit":True
 }
