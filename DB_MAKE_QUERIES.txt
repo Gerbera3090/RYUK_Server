@@ -1,0 +1,79 @@
+-- Teams 테이블 생성
+CREATE TABLE Teams (
+    team_id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(20),
+    link TEXT,
+    category VARCHAR(20),
+    introduce TEXT,
+    master_id INT,
+    start_day DATE,
+    end_day DATE,
+    PRIMARY KEY (team_id)
+);
+
+-- Users 테이블 생성
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT NOT NULL,
+    login_id VARCHAR(30),
+    password VARCHAR(30),
+    user_name VARCHAR(20),
+    nickname VARCHAR(20),
+    email VARCHAR(50),
+    team_id INT,
+    is_manager TINYINT(1),
+    PRIMARY KEY (user_id)
+);
+
+-- Relation_Team_User 테이블 생성
+CREATE TABLE Relation_Team_User (
+    team_user_id INT AUTO_INCREMENT NOT NULL,
+    team_id INT,
+    user_id INT,
+    PRIMARY KEY (team_user_id)
+);
+
+-- Relation_Team_Page 테이블 생성
+CREATE TABLE Relation_Team_Page (
+    team_page_id INT AUTO_INCREMENT NOT NULL,
+    mission_date DATE,
+    team_id INT,
+    page_id INT,
+    PRIMARY KEY (team_page_id)
+);
+
+-- Mission_Pages 테이블 생성
+CREATE TABLE Mission_Pages (
+    page_id INTEGER AUTO_INCREMENT NOT NULL,
+    title VARCHAR(30),
+    PRIMARY KEY (page_id)
+);
+
+-- Missions 테이블 생성
+CREATE TABLE Missions (
+    mission_id INT AUTO_INCREMENT NOT NULL,
+    title VARCHAR(30),
+    mission_type VARCHAR(10),
+    submit_type VARCHAR(10),
+    PRIMARY KEY (mission_id)
+);
+
+CREATE TABLE Queue_User_Team(
+    queue_user_team_id INT AUTO_INCREMENT NOT NULL,
+    user_id int,
+    team_id int,
+    team_assigned int default 0,
+    PRIMARY KEY (queue_user_team_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (team_id) REFERENCES Teams(team_id)
+);
+
+-- Relation_User_Mission 테이블 생성
+CREATE TABLE Relation_User_Mission (
+    user_mission_id INT AUTO_INCREMENT NOT NULL,
+    user_id INT,
+    mission_id INT,
+    is_success TINYINT(1),
+    mission_date DATE,
+    from_team TINYINT(1),
+    PRIMARY KEY (user_mission_id)
+);
