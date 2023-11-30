@@ -9,6 +9,7 @@
 + 서버 : AWS EC2
 + Database : AWS RDB + MariaDB 10.6
 + Code : Python, FastAPI
++ 사용한 라이브러리 : pymysql,pymysqlpool
 
 ------
 ## 서버 구동 방법
