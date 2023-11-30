@@ -6,5 +6,20 @@
 + Database : AWS RDB + MariaDB 10.6
 + Code : Python, FastAPI
 
+## 서버 구동 방법
+
+### 서버 켜기
+* project 폴더로 진입
+* 가상 환경 활성화
+"""
+source bin/activate
+"""
+* source 폴더 진입
+* 서버 활성화
+"""
+source server.sh;run
+"""
+
+
 
 
